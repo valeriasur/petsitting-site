@@ -1,0 +1,473 @@
+/* SitterApplicationPage.css */
+
+/* ============================================= */
+/* === Основной контейнер страницы заявки ==== */
+/* ============================================= */
+.sitter-application-container {
+  max-width: 900px; /* Или другая ширина */
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Секция с кнопкой "Подать заявку" */
+.apply-button-section {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.apply-button-section p {
+  font-size: 1.2rem;
+}
+
+.apply-button {
+  background-color: #ececec;
+  border: none;
+  color: rgb(30, 37, 43);
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+.apply-button:hover {
+  background-color: #7a91cf;
+}
+
+/* Сообщения */
+.loading-message {
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+  color: #666;
+}
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+.info-message {
+  text-align: center;
+  color: #666;
+  margin-top: 2rem;
+}
+.info-message a {
+  color: #007bff;
+}
+.form-description {
+  /* Описание под кнопкой или полем */
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 0.3rem;
+}
+
+/* ============================================= */
+/* === Стили многошаговой формы ================ */
+/* ============================================= */
+.sitter-form-multi-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sitter-form-multi-step h3 {
+  /* Заголовок "Анкета помощника" */
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Контейнер: Стрелки + Контент Шага */
+.step-container {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+/* Стрелки навигации */
+.step-nav-arrow {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  color: #555;
+  font-size: 1.5rem;
+  padding: 0 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+  margin: 0 10px;
+  align-self: center;
+  height: 60px;
+  width: 60px;
+  min-width: 50px;
+}
+.step-nav-arrow:hover:not(:disabled) {
+  background-color: #e0e0e0;
+  color: #333;
+}
+.step-nav-arrow.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.arrow-placeholder {
+  /* Заглушка для выравнивания на первом шаге */
+  min-width: 50px;
+  margin: 0 10px;
+  flex-shrink: 0; /* Важно, чтобы занимало место */
+}
+
+/* Обертка контента шага */
+.step-content-wrapper {
+  flex-grow: 1;
+  border: 1px solid #eee;
+  padding: 1.5rem;
+  border-radius: 5px;
+  background-color: #fdfdfd;
+  min-height: 300px; /* Или другая высота */
+}
+
+/* Общий стиль для заголовков шагов (внутри .step-content-wrapper) */
+.sitter-step-content h4 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+.step-description {
+  /* Описание под заголовком шага */
+  text-align: center;
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Индикатор шагов (точки) */
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.dot {
+  height: 12px;
+  width: 12px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+.dot.active {
+  background-color: #007bff;
+}
+
+/* ============================================= */
+/* === Общее выравнивание для .form-group ====== */
+/* === (Применяется к Шагам 2, 3, 4 и др.) ==== */
+/* ============================================= */
+.form-group {
+  display: grid;
+  /* Ширина метки, остальное под поле/опции */
+  /* Для текстовых полей и textarea */
+  grid-template-columns: 150px 1fr;
+  gap: 15px; /* Отступ между меткой и полем/опциями */
+  align-items: start; /* Выравнивание по верху */
+  margin-bottom: 1.5rem;
+}
+
+/* Общие стили для label внутри .form-group */
+.form-group > label {
+  white-space: nowrap;
+  grid-column: 1 / 2; /* Метка в первой колонке */
+  text-align: right;
+  margin-bottom: 0;
+  font-weight: bold;
+  color: #555;
+  padding-top: 5px; /* Сдвиг для выравнивания с первой строкой поля/опций */
+  justify-self: end; /* Выравнивание самой метки вправо в ячейке */
+  white-space: normal; /* Разрешаем перенос для длинных меток */
+}
+
+/* Общие стили для полей/групп во второй колонке */
+.form-group > input[type="text"],
+.form-group > input[type="number"],
+.form-group > select,
+.form-group > textarea,
+.form-group > .radio-group,
+.form-group > .checkbox-group,
+.form-group > .radio-group-inline {
+  grid-column: 2 / 3; /* Элемент во второй колонке */
+  width: 300px;
+  box-sizing: border-box;
+  text-align: left; /* Сброс выравнивания для групп */
+}
+
+/* Общие стили для полей ввода */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.form-group textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* Описание под полем */
+.form-group .form-description {
+  grid-column: 2 / 3; /* Во второй колонке */
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  color: #777;
+  text-align: left;
+}
+
+/* ============================================= */
+/* === Выравнивание ТОЛЬКО для Шага 1 ========= */
+/* === (ProfileForm внутри Outlet) ============ */
+/* ============================================= */
+.sitter-profile-form-step .form-group {
+  /* Переопределяем колонки, если нужно другое соотношение */
+  grid-template-columns: 120px 1fr;
+  align-items: center; /* Выравниваем по центру для инпутов */
+}
+
+.sitter-profile-form-step .form-group > label {
+  padding-top: 0; /* Убираем верхний паддинг для центрирования */
+  white-space: nowrap; /* Запрещаем перенос на шаге 1 (если метки короткие) */
+}
+
+/* Описание под полем для шага 1 */
+.sitter-profile-form-step .form-group .form-description {
+  padding-top: 0; /* Убираем отступ */
+}
+
+/* ============================================= */
+/* === Стили для групп чекбоксов/радио ======== */
+/* ============================================= */
+
+/* Контейнер группы чекбоксов (Шаг 3) */
+.form-group > .checkbox-group {
+  grid-column: 2 / 3; /* Помещаем в правую колонку */
+  display: grid; /* Включаем Grid для расположения самих чекбоксов */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 5px 15px; /* Отступы: вертикальный горизонтальный */
+  width: 100%; /* Занимает всю ширину ячейки родительского Grid */
+  text-align: left; /* Сброс выравнивания */
+}
+
+/* Метка внутри группы чекбоксов/радио */
+.radio-group label,
+.checkbox-group label,
+.radio-group-inline label {
+  display: flex; /* Выравниваем инпут и текст */
+  align-items: center; /* По вертикали */
+  cursor: pointer;
+  margin-bottom: 0; /* Отступ между опциями */
+  white-space: nowrap;
+}
+.radio-group-inline label {
+  display: inline-flex; /* Опции в строку */
+  margin-right: 15px;
+}
+
+/* Сам инпут (чекбокс/радио) */
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"],
+.radio-group-inline input[type="radio"] {
+  margin-right: 8px; /* <-- Вот отступ, отодвигающий текст! */
+  cursor: pointer;
+  flex-shrink: 0; /* Не сжимать сам инпут */
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+/* ============================================= */
+/* === Стили для Шага 2 (Услуги) =============== */
+/* ============================================= */
+.service-block {
+  /* Контейнер для одной услуги */
+  border: 1px solid #e0e0e0;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.service-toggle {
+  /* Метка с чекбоксом для включения услуги */
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  color: #333;
+}
+/* Стилизация чекбокса услуги */
+.service-toggle input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+.service-toggle .checkmark {
+  position: relative;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: background-color 0.2s ease;
+}
+.service-toggle input[type="checkbox"]:checked + .checkmark {
+  background-color: #7a91cf;
+  border-color: #7a91cf;
+}
+.service-toggle .checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+.service-toggle input[type="checkbox"]:checked + .checkmark::after {
+  display: block;
+}
+
+/* Описание услуги */
+.service-description {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+/* Группа для ввода цены */
+.price-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+.price-group label {
+  flex-basis: 50%;
+  text-align: left;
+  white-space: nowrap;
+  margin-bottom: 0;
+  padding-top: 0;
+} /* Переопределяем стили .form-group > label */
+.price-group input {
+  flex-grow: 1;
+  max-width: 100px;
+  text-align: right;
+}
+/* Информационные блоки */
+.commission-info,
+.warning-text,
+.price-tips {
+  font-size: 0.85rem;
+  color: #7a91cf;
+  background-color: #f8f9fa;
+  padding: 0.8rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  border-left: 3px solid #ccc;
+  margin-bottom: 15px;
+}
+.warning-text {
+  border-left-color: #ffc107;
+}
+.warning-text a {
+  color: #007bff;
+  text-decoration: none;
+}
+.warning-text a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================= */
+/* === Медиа-запросы для адаптивности ========= */
+/* ============================================= */
+@media (max-width: 768px) {
+  /* Общая группа: метка сверху */
+  .form-group {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    align-items: start;
+  }
+  .form-group > label {
+    text-align: left;
+    margin-bottom: 5px;
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding-top: 0;
+  }
+  .form-group > input,
+  .form-group > select,
+  .form-group > textarea,
+  .form-group .form-description,
+  .form-group > .radio-group,
+  .form-group > .checkbox-group,
+  .form-group > .radio-group-inline {
+    grid-column: 1 / -1;
+  }
+
+  /* Группа чекбоксов: тоже одна колонка */
+  .form-group > .checkbox-group {
+    grid-template-columns: 1fr;
+    gap: 8px 0;
+  }
+
+  /* Специфичные для Шага 1 на мобильных (если нужно вернуть стандартное поведение)*/
+  .sitter-profile-form-step .form-group {
+    /* Стили grid уже переопределены выше */
+  }
+  .sitter-profile-form-step .form-group > label {
+    white-space: normal; /* Разрешаем перенос */
+  }
+
+  /* Уменьшаем отступы у стрелок */
+  .step-nav-arrow {
+    margin: 0 5px;
+    padding: 0 10px;
+    min-width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  .arrow-placeholder {
+    min-width: 40px;
+    margin: 0 5px;
+  }
+}
+
+#maxDogs {
+  width: 100px;
+}
+
+#experience_years {
+  width: 100px;
+}

@@ -1,0 +1,37 @@
+body {
+  background-color: #eef2f3; /* Цвет фона светло-серый */
+  margin: 0; /* Убирает отступы по умолчанию */
+  padding: 0; /* Убирает внутренние отступы */
+  font-family: Arial, sans-serif; /* Пример шрифта */
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Горизонтальная линия, которая разделяет хедер и контент */
+hr.divider {
+  border: 0;
+  border-top: 3px solid #333; /* Темная линия */
+  margin: 20px 0; /* Отступы сверху и снизу */
+}

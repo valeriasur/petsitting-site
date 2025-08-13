@@ -1,0 +1,239 @@
+/* HomePage.css */
+
+.home-page-container {
+  width: 100%;
+  background-color: #f9fafb; /* Очень светло-серый фон для всей страницы */
+  color: #374151; /* Основной цвет текста */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Oxygen",
+    "Ubuntu", Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; /* Или ваш основной шрифт */
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  background-color: #ffffff; /* Белый фон для hero */
+  padding: 60px 20px;
+  text-align: center;
+  border-bottom: 1px solid #e5e7eb; /* Тонкая линия-разделитель */
+}
+
+.hero-content h1 {
+  font-size: 2rem;
+  color: #4b4d4e; /* Очень темный серый, почти черный */
+  font-weight: 600; /* Жирный */
+  margin-bottom: 0.75em;
+}
+
+.hero-subtitle {
+  font-size: 1.18rem;
+  color: #4b5563; /* Серый */
+  max-width: 700px;
+  margin: 0 auto 2em;
+  line-height: 1.6;
+}
+
+.hero-cta-button .custom-button {
+  background-color: #ececec;
+  border: none;
+  color: rgb(30, 37, 43);
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.hero-cta-button .custom-button:hover {
+  background-color: #7a91cf;
+}
+
+.why-choose-us-section {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.why-choose-us-section h2 {
+  font-size: 2rem;
+  color: #4b4d4e;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.features-grid {
+  display: grid;
+  gap: 30px; /* Отступ между карточками */
+  max-width: 900px; /* Максимальная ширина для контейнера с 2-мя карточками в ряд */
+  /* Подберите это значение, чтобы карточки не были слишком узкими или широкими */
+  margin: 0 auto; /* Центрирование сетки */
+  grid-template-columns: 1fr; /* По умолчанию 1 колонка (для мобильных экранов) */
+}
+
+/* Медиа-запрос для экранов, где мы хотим 2 колонки */
+@media (min-width: 640px) {
+  /* Например, начиная с ширины 640px (типичный breakpoint для sm) */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки равной ширины */
+  }
+}
+
+.feature-item {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  align-self: center;
+}
+
+.feature-item h3 {
+  font-size: 1.25rem;
+  color: #1f2937;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.feature-item p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.6;
+  flex-grow: 1; /* Чтобы текстовый блок занимал доступное место */
+}
+
+/* --- How It Works Section --- */
+.how-it-works-section {
+  padding: 50px 20px;
+  background-color: #f9fafb; /* Снова светло-серый фон */
+  text-align: center;
+}
+
+.how-it-works-section h2 {
+  font-size: 2rem;
+  color: #1f2937;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  /* 
+    ↓↓↓ ВАЖНО: Изменяем отступы. 
+    Добавляем 40px сверху, чтобы отодвинуть блок от текста,
+    и убираем отступ снизу.
+  */
+  margin: 40px auto 0; /* Было: margin: 0 auto 50px; */
+}
+
+.step-item {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  flex: 1; /* Чтобы занимали равную ширину, если их 3 */
+  min-width: 280px; /* Минимальная ширина для адаптивности */
+  text-align: center;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background-color: #7a91cf;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+}
+
+.step-item h3 {
+  font-size: 1.2rem;
+  color: #1f2937;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.step-item p {
+  font-size: 0.9rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.how-it-works-cta-button .custom-button {
+  padding: 12px 30px !important;
+  font-size: 1.1rem !important;
+  background-color: #3b82f6 !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 500 !important;
+}
+.how-it-works-cta-button .custom-button:hover {
+  background-color: #2563eb !important;
+}
+
+/* --- Become Sitter Section --- */
+.become-sitter-section {
+  padding: 60px 20px;
+  background-color: #7a91cf; /* Акцентный синий фон */
+  color: white;
+  text-align: center;
+}
+
+.become-sitter-section h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.become-sitter-section p {
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.custom-button.hero-cta-button-style {
+  background-color: #ececec;
+  border: none;
+  color: rgb(30, 37, 43);
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 40px;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+}
+.custom-button.hero-cta-button-style:hover {
+  background-color: #7a91cf;
+}
+
+/* Убираем старые стили .App-header, так как мы используем .home-page-container */
+.App-header {
+  /* Если этот класс используется и для других страниц, нужно быть осторожнее */
+  /* Старые стили можно закомментировать или удалить, если HomePage теперь главный контейнер */
+}
+.App-header h1,
+.App-header h2,
+.App-header h3,
+.App-header button {
+  /* Эти стили больше не нужны в таком виде для HomePage */
+}

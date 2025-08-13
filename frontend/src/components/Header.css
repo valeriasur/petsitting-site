@@ -1,0 +1,106 @@
+/* Header.css */
+
+/* Стили для контейнера навигации */
+nav ul {
+  display: flex; /* Выстраивает элементы по горизонтали */
+  list-style-type: none; /* Убирает маркеры списка */
+  padding: 0; /* Убирает внутренний отступ */
+  margin-bottom: 70px;
+  justify-content: center; /* Центрирует элементы по горизонтали */
+}
+
+/* Стили для каждого элемента списка */
+nav li {
+  margin-right: 25px; /* Отступ между пунктами списка */
+}
+
+/* Стили для ссылок */
+nav a {
+  text-decoration: none; /* Убирает подчеркивание с ссылок */
+  color: rgb(15, 21, 27); /* Цвет текста ссылок */
+  font-size: 1.2rem;
+}
+
+nav a:hover {
+  color: #416fa3; /* Цвет текста при наведении */
+}
+
+/* === СТИЛИ ДЛЯ КНОПКИ "ВЫЙТИ" === */
+nav button {
+  background: none; /* Убираем фон кнопки */
+  border: none; /* Убираем рамку кнопки */
+  padding: 0; /* Убираем внутренние отступы */
+  font: inherit; /* Наследуем шрифт от родительского элемента */
+  cursor: pointer; /* Меняем курсор при наведении */
+  color: rgb(15, 21, 27); /* Цвет текста, как у ссылок */
+  text-decoration: none; /* Убираем подчеркивание */
+  display: inline-block; /* Размещаем в строку с другими элементами */
+  margin-right: 25px; /* Отступ между пунктами списка */
+  font: inherit; /* Эту строку можно теперь убрать или заменить */
+  font-size: 1.2rem; /* <--- ДОБАВЬТЕ СЮДА ТОЖЕ */
+}
+
+nav button:hover {
+  color: #416fa3; /* Цвет текста при наведении */
+}
+
+/* Стили для картинки в шапке */
+.Header-image {
+  margin-top: 10px; /* Отступ сверху для картинки */
+  max-height: 300px; /* Максимальная высота картинки */
+  width: auto; /* Не изменяем ширину картинки */
+  height: auto;
+  margin-bottom: 10px; /* Отступ снизу от картинки */
+}
+
+/* Контейнер для отзыва */
+.review-container {
+  display: flex; /* Расставляет элементы (картинку и текст) в строку */
+  align-items: center; /* Выравнивание по вертикали */
+  margin-bottom: 40px;
+  width: fit-content; /* Ширина контейнера по содержимому */
+  margin-left: auto; /* Автоматический отступ слева */
+  margin-right: auto; /* Автоматический отступ справа */
+  min-height: 60px;
+}
+
+/* Стили для картинки отзыва */
+.review-image {
+  margin-right: 20px; /* Отступ между картинкой и текстом */
+}
+
+.review-image img {
+  max-width: 150px; /* Ограничиваем размер картинки */
+  border-radius: 150px; /* Округляем картинку */
+}
+
+/* Стили для текста отзыва */
+.review-text {
+  max-width: 600px; /* Ограничиваем ширину текста */
+  text-align: center;
+}
+
+.review-text p {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #333;
+}
+
+.review-text h4 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Горизонтальная линия, которая разделяет хедер и контент */
+hr.divider {
+  border: 0;
+  border-top: 3px solid #333; /* Темная линия */
+  margin: 0; /* Убирает отступы сверху и снизу */
+}
+
+/* Цвет фона для контента сразу после линии */
+.content-container {
+  background-color: #f7fafc; /* Более светлый цвет фона для основного контента */
+  padding: 20px; /* Отступы для контента */
+}

@@ -1,0 +1,110 @@
+/* src/components/SitterCard.css */
+.sitter-card {
+  display: flex;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  gap: 15px; /* Расстояние между блоками */
+}
+
+.sitter-card-photo-container {
+  flex-shrink: 0; /* Не сжиматься */
+  width: 100px; /* Фиксированная ширина для фото */
+  height: 100px;
+}
+
+.sitter-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Масштабировать и обрезать фото */
+  border-radius: 50%; /* Круглое фото */
+  border: 1px solid #eee;
+}
+
+.sitter-card-info {
+  flex-grow: 1; /* Занять доступное пространство */
+  display: flex;
+  flex-direction: column;
+}
+
+.sitter-card-name-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 1em;
+}
+
+.sitter-card-name-link h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.2em;
+}
+.sitter-card-name-link:hover h3 {
+  color: #91a0c9; /* Цвет при наведении */
+}
+
+.sitter-card-location {
+  font-size: 0.9em;
+  color: #666;
+  margin: 0 0 10px 0;
+}
+
+.sitter-card-rating {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rating-score {
+  color: #dac510; /* Золотой цвет для звезды */
+  font-weight: bold;
+}
+
+.review-count {
+  color: #4b4d4e;
+  cursor: pointer; /* Если хотите сделать кликабельным */
+}
+
+.sitter-card-bio {
+  font-size: 1em;
+  color: #444;
+  line-height: 1.4;
+  margin-bottom: 0; /* Убираем отступ у последнего элемента в info */
+}
+
+.sitter-card-price {
+  flex-shrink: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Разместить цену и кнопку по краям */
+  min-width: 100px; /* Минимальная ширина блока цены */
+}
+
+.price-value {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 10px; /* Отступ от кнопки */
+}
+
+.sitter-card-details-button {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #91a0c9;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sitter-card-details-button:hover {
+  background-color: hsl(213, 34%, 50%);
+}

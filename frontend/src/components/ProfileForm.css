@@ -1,0 +1,880 @@
+/* components/ProfileForm.css */
+
+* {
+  box-sizing: border-box;
+}
+
+.profile-container {
+  display: flex; /* Горизонтальный flex-контейнер */
+  width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+  margin-bottom: 5px;
+  text-decoration: none;
+  color: #444649;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* --- ДОБАВЬТЕ ЭТИ СТРОКИ --- */
+  white-space: nowrap; /* <-- ЗАПРЕЩАЕМ ПЕРЕНОС ТЕКСТА */
+  overflow: hidden; /* <-- ОБРЕЗАЕМ ВСЕ, ЧТО НЕ ПОМЕЩАЕТСЯ */
+  text-overflow: ellipsis; /* <-- ДОБАВЛЯЕМ "..." В КОНЦЕ ОБРЕЗАННОГО ТЕКСТА */
+}
+
+.sidebar ul li a:hover {
+  background-color: #7a91cf;
+}
+
+/* Обертка для основного контента - КЛЮЧЕВОЙ МОМЕНТ */
+.main-content-wrapper {
+  overflow-x: hidden;
+  min-width: 0;
+  flex-grow: 1; /* Занимает оставшееся пространство */
+  padding: 20px; /* Отступы */
+}
+
+/* Стили для содержимого ВНУТРИ форм (ProfileForm и ProfileFormPet) */
+.main-content {
+  /*  ВАШИ СТИЛИ ДЛЯ СОДЕРЖИМОГО ФОРМ (если нужны общие) */
+}
+
+.form-title {
+  font-size: 29px;
+  margin-bottom: 20px;
+  color: #44464b;
+}
+
+.form-group {
+  display: flex;
+  /* align-items: flex-start; /* Оставляем как есть, если это ваш основной стиль */
+  /* Если вы хотите выровнять по центру для всех, можно поменять на center */
+  align-items: center; /* <<< ПОПРОБУЙТЕ 'center' ИЛИ 'baseline' ДЛЯ ВСЕХ .form-group */
+  justify-content: center; /* Оставляем, если нужно центрирование группы */
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  /* margin-bottom: 0; */ /* Если был, можно убрать для выравнивания */
+  margin-right: 0;
+  margin-left: 10px;
+  flex-shrink: 0;
+  color: #686262;
+  font-size: 18px;
+  width: 150px; /* Ваша фиксированная ширина для первого лейбла */
+  box-sizing: border-box;
+  /* Если align-items: center в .form-group, можно добавить line-height, равный высоте инпута/кнопки */
+  /* line-height: 38px; */ /* Например, если высота инпута/кнопки около 38px */
+}
+
+.form-group label.upload-button {
+  width: auto;
+  display: inline-block;
+  margin-left: 20px;
+  padding: 8px 16px;
+
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ececec;
+  border: none;
+  color: rgb(30, 37, 43);
+
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  text-align: center;
+  font-size: 1rem;
+  line-height: normal;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea:not(.pet-description-textarea) {
+  width: 300px;
+  padding: 10px; /* Убедитесь, что вертикальный padding здесь и у кнопки-лейбла похож */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #444;
+  margin-left: 20px; /* Отступ от первого лейбла */
+  display: block; /* Это может мешать, если кнопка должна быть в строку с чем-то еще */
+}
+
+.upload-button-wrapper {
+  margin-left: 20px; /* Тот же отступ, что и у обычных инпутов */
+  width: 300px; /* Тот же размер, что и у обычных инпутов, ИЛИ width: auto; если кнопка должна быть по содержимому */
+  display: inline-block; /* Чтобы она вела себя как инпут в потоке */
+}
+
+.upload-button-wrapper .upload-button {
+  /* Стили для самой кнопки, если они отличаются от общего .upload-button */
+  /* Например, если нужно сделать ее на всю ширину wrapper'а: */
+  /* display: block; */
+  /* width: 100%; */
+  /* text-align: center; */
+  padding: 8px 16px; /* Убедитесь, что вертикальные паддинги схожи с инпутами */
+  /* ... остальные стили кнопки ... */
+  font-size: 1rem;
+  line-height: normal; /* Сброс, если наследовался */
+}
+
+.form-group-change-password {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.form-group-change-password input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #444;
+  margin-left: 20px;
+  display: block;
+}
+
+.input-group textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 10px;
+  resize: vertical; /*  Разрешить изменение размера только по вертикали  */
+  overflow: auto; /* Добавляем, чтобы появлялся скроллбар */
+}
+
+.input-group textarea:placeholder-shown:not(:focus) + .placeholder-text {
+  /* display: block;  УДАЛИТЬ */
+  position: absolute; /*  Абсолютное позиционирование */
+  top: 10px; /*  Отступ сверху (подберите) */
+  left: 10px; /*  Отступ слева (подберите) */
+  color: #999; /*  Серый цвет (подберите) */
+  pointer-events: none; /*  Делает текст "прозрачным" для кликов */
+  white-space: pre-line; /*  Сохраняем переносы строк */
+  font-size: 1rem; /*Такой же размер как и у текста*/
+  padding-left: 5px; /*отступ слева*/
+}
+/*Убираем outline*/
+.input-group textarea:focus {
+  outline: none;
+}
+
+.placeholder-text {
+  margin-left: 30px; /* Вы это уже используете, возможно, нужно будет скорректировать */
+  font-size: 0.85rem;
+  color: #6b7280;
+  padding-left: 10px;
+}
+
+/*стили для радиокнопок*/
+.form-group input[type="radio"] {
+  width: auto;
+
+  margin-right: 5px;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #7a91cf;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input[type="text"]:hover,
+.form-group input[type="tel"]:hover,
+.form-group input[type="number"]:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+  outline: none;
+  border-color: #7a91cf;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-description {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 5px;
+}
+
+.save-button {
+  background-color: #ececec;
+  border: none;
+  color: rgb(30, 37, 43);
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+}
+
+.save-button:hover {
+  background-color: #7a91cf;
+}
+
+.save-button-account {
+  background-color: #ececec;
+  border: none;
+  color: rgb(30, 37, 43);
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+
+.avatar-image {
+  width: 150px;
+  height: 150px;
+  background-image: url("../images/iconDefaultAccount.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.upload-button {
+  /* ЗАДАЕМ МИНИМАЛЬНУЮ ШИРИНУ, чтобы кнопка всегда была достаточно большой */
+  min-width: 150px; /* Можете подобрать значение, которое вам нравится */
+  text-align: center; /* Чтобы короткий текст ("Сменить фото") был по центру */
+
+  /* ГАРАНТИРУЕМ, ЧТО ТЕКСТ НЕ ПЕРЕНЕСЕТСЯ */
+  white-space: nowrap;
+
+  /* Убираем лишние margin, так как центрирование теперь делает родитель */
+  margin: 0;
+
+  box-sizing: border-box; /* На всякий случай, чтобы padding был внутри ширины */
+
+  /* --- Остальные ваши стили остаются --- */
+  background-color: #ecedee;
+  border: none;
+  color: rgb(30, 37, 43);
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.upload-button:hover {
+  background-color: #7a91cf;
+  color: #fff;
+}
+
+.profile-picture input[type="file"] {
+  display: none;
+}
+
+.profile-picture {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+/*стили для радиокнопок*/
+input[type="radio"] + label {
+  margin-right: 10px;
+}
+
+/* components/ProfileForm.css */
+
+.placeholder-text ul {
+  /* list-style-type: disc;  /* БЫЛО ТАК (или по умолчанию disc) */
+  list-style-type: none; /* <--- ИЗМЕНЕНИЕ: Убираем маркеры */
+  margin: 0; /* Убираем стандартные отступы браузера для ul */
+  padding-left: 0; /* Убираем стандартный левый отступ для ul, если он не нужен */
+  /* Если нужен небольшой отступ для текста, можно поставить padding-left: 5px; или 10px; */
+}
+
+.placeholder-text li {
+  margin-bottom: 5px; /* Отступ между элементами списка */
+  /* Если вы убрали padding-left у ul, но хотите сохранить выравнивание,
+     можно добавить padding-left сюда, но обычно проще оставить его у ul или управлять через display: flex на родителе.
+     В вашем случае, так как текст-подсказка и так уже имеет отступы,
+     простое list-style-type: none; и padding-left: 0; для ul должно сработать.
+  */
+  font: 15px;
+}
+
+.list-subheader {
+  font: 14px;
+  font-weight: bold;
+}
+/* Стили для textarea с описанием питомца */
+.pet-description-textarea {
+  height: 400px; /* Занять всю доступную ширину */
+  padding: 10px;
+  margin-left: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 15px; /* Добавить отступ снизу перед примером */
+  resize: vertical; /* Разрешить изменять размер по вертикали */
+  display: block; /* Убедиться, что элемент блочный */
+  box-sizing: border-box; /* Чтобы padding и border входили в width */
+}
+
+.recommendations-layout {
+  display: flex; /* Включаем Flexbox - ГЛАВНОЕ */
+  align-items: flex-start; /* Выравниваем элементы по ВЕРХУ */
+  gap: 20px; /* Пространство МЕЖДУ textarea и текстом */
+  margin-top: 15px; /* Отступ сверху для всей группы */
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column; /* Элементы друг под другом */
+  gap: 8px; /* Отступ между пунктами */
+  font: 14px;
+  margin-left: 70px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center; /* Выравнивание по центру */
+  cursor: pointer; /* Курсор-указатель при наведении */
+  width: auto;
+}
+
+h3.h3 {
+  /* Более специфичный селектор */
+  font-size: 23px !important; /* На крайний случай */
+  margin-bottom: 15px;
+}
+
+.input-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Отступ между элементами в колонке */
+  margin-left: 10px; /* Отступ слева от колонки */
+  flex: 1; /* Занимает всю доступную ширину */
+  align-items: center; /* Выравнивание элементов по левому краю */
+}
+
+.download-link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #107ba5;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.download-link a {
+  color: #6842a5; /* Задаем цвет именно ссылке */
+  text-decoration: none; /* Убрать подчеркивание, если нужно */
+}
+
+.download-link a:hover {
+  color: #4d2f7c; /* Цвет при наведении (темнее) */
+  text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+.form-group h3 {
+  text-align: center;
+}
+
+.form-section-heading {
+  text-align: center;
+  width: 100%; /* Чтобы заголовок занимал всю ширину .form-group и мог центрироваться */
+  margin-top: 20px; /* Опционально: отступ сверху */
+  margin-bottom: 10px; /* Опционально: отступ снизу перед текстом <p> */
+  font-size: 1.6em; /* Можете настроить размер шрифта */
+  color: #333; /* Можете настроить цвет */
+}
+
+.buttor-sitter {
+  background-color: #ececec;
+  border: none;
+  color: rgb(30, 37, 43);
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.inscription-sitter {
+  margin-top: 20px;
+}
+
+/* src/components/MyBookingsPage.css */
+
+.my-bookings-page h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.bookings-section {
+  margin-bottom: 2.5rem;
+}
+
+.bookings-section h3 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.bookings-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.booking-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Чтобы скругление работало */
+}
+
+.booking-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.booking-service {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.booking-status {
+  font-size: 0.9em;
+  font-weight: bold;
+  padding: 0.3em 0.8em;
+  border-radius: 12px;
+  text-transform: capitalize; /* Сделать первую букву заглавной */
+}
+
+/* Стилизация статусов (пример) */
+.status-badge-в-ожидании {
+  background-color: #ffc107;
+  color: #333;
+}
+.status-badge-подтвержденный {
+  background-color: #28a745;
+  color: white;
+}
+.status-badge-завершенный {
+  background-color: #6c757d;
+  color: white;
+}
+.status-badge-отмененный_владельцем,
+.status-badge-отмененный_работником,
+.status-badge-отклоненный {
+  background-color: #dc3545;
+  color: white;
+}
+
+.booking-card-body {
+  padding: 1.2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+/* Адаптация для широких экранов */
+@media (min-width: 768px) {
+  .booking-card-body {
+    grid-template-columns: 2fr 1fr; /* Детали слева, кнопки справа */
+    align-items: start;
+  }
+}
+
+.booking-details p {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.5;
+  color: #555;
+}
+.booking-details p strong {
+  color: #333;
+  margin-right: 5px;
+}
+
+.booking-actions {
+  display: flex;
+  flex-wrap: wrap; /* Позволяет кнопкам переноситься, если не помещаются */
+  gap: 10px; /* Пространство между кнопками (увеличил для наглядности) */
+  margin-top: 10px;
+  /* justify-content: flex-start; /* По умолчанию кнопки будут слева */
+}
+/* Адаптация для широких экранов */
+@media (min-width: 768px) {
+  .booking-actions {
+    flex-direction: row; /* Кнопки в ряд */
+    justify-content: flex-end; /* Прижать к правому краю */
+    margin-top: 0; /* Убрать отступ сверху */
+  }
+}
+
+.booking-actions .button {
+  padding: 8px 12px; /* Внутренние отступы */
+  border: none; /* Убираем стандартную рамку, если своя не нужна */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease; /* Добавил переходы */
+
+  /* Для одинакового размера: */
+  flex-grow: 1; /* Каждая кнопка будет стараться занять равное пространство */
+  flex-basis: 0; /* Важно для корректной работы flex-grow */
+  min-width: 120px; /* Минимальная ширина, чтобы кнопки не становились слишком узкими */
+  /* Подберите это значение. Можно и без него, если flex-grow устраивает */
+  box-sizing: border-box; /* Чтобы padding и border учитывались */
+}
+
+.confirm-button {
+  background-color: #5fb974;
+  color: white;
+}
+.decline-button {
+  background-color: #b44b55;
+  color: white;
+}
+.cancel-button {
+  background-color: #d4b864;
+  color: #333;
+}
+
+.confirm-button:hover {
+  background-color: #218838;
+}
+.decline-button:hover {
+  background-color: #c82333;
+}
+.cancel-button:hover {
+  background-color: #e0a800;
+}
+
+/* ... существующие стили ... */
+
+.cancellation-reason-input {
+  margin-top: 1rem;
+  border-top: 1px dashed #ccc;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cancellation-reason-input textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  min-height: 60px;
+  box-sizing: border-box;
+}
+
+.cancellation-reason-input .reason-buttons {
+  display: flex;
+  justify-content: flex-end; /* Кнопки справа */
+  gap: 0.5rem;
+}
+
+.cancellation-reason-input .reason-buttons .button {
+  padding: 0.4rem 0.8rem; /* Чуть меньше кнопки */
+  font-size: 0.85rem;
+}
+
+.action-loading {
+  font-style: italic;
+  color: #555;
+  padding: 0.5rem 0;
+}
+.action-error {
+  /* Стили для ошибки внутри карточки */
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.9em;
+}
+
+/* Кнопка Оставить отзыв */
+.review-button {
+  background-color: #7697bb;
+  color: white;
+  margin-top: 0.5rem; /* Добавить отступ сверху */
+}
+.review-button:hover {
+  background-color: #7697bb;
+}
+
+/* Форма отзыва */
+.review-form {
+  margin-top: 1rem;
+  border-top: 1px dashed #ccc;
+  padding-top: 1rem;
+  background-color: #fdfdfd; /* Немного выделить фон */
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+.review-form h5 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.review-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  min-height: 80px;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+}
+.review-form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.review-form-buttons .button {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+/* Рейтинг звездами */
+.star-rating {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 2em; /* Размер звезд */
+  cursor: pointer;
+}
+.star {
+  color: #ccc; /* Цвет пустой звезды */
+  margin: 0 2px;
+  transition: color 0.2s;
+}
+.star.filled {
+  color: #ffc107; /* Цвет заполненной звезды (желтый) */
+}
+
+/* Сообщение об успехе отзыва */
+.review-success {
+  margin-top: 1rem;
+  text-align: center;
+}
+.complete-button {
+  background-color: #17a2b8; /* Пример: бирюзовый */
+  color: white;
+}
+.complete-button:hover {
+  background-color: #138496;
+}
+
+.sidebar .avatar-container {
+  width: 150px; /* ЗАДАЙТЕ ЖЕЛАЕМУЮ ШИРИНУ */
+  height: 150px; /* ЗАДАЙТЕ ЖЕЛАЕМУЮ ВЫСОТУ */
+  border-radius: 50%; /* Для круглого аватара */
+  overflow: hidden; /* ОБЯЗАТЕЛЬНО, чтобы обрезать изображение по границам контейнера */
+  margin: 20px auto;
+  border: 2px solid #eee; /* Небольшая рамка для наглядности */
+  display: flex; /* Для центрирования img, если он меньше контейнера */
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Цвет фона, если изображение не загрузилось или прозрачное */
+}
+
+.sidebar .avatar-image-preview {
+  display: block; /* Убирает лишние отступы под img */
+  width: 100%; /* Изображение будет занимать всю ширину контейнера */
+  height: 100%; /* Изображение будет занимать всю высоту контейнера */
+  object-fit: cover; /* МАГИЯ: Масштабирует изображение, сохраняя пропорции,
+                         и обрезает лишнее, чтобы заполнить контейнер.
+                         Для заглушек можно использовать 'contain', если они должны полностью помещаться. */
+}
+
+/* Класс для унификации размера кнопок "Скачать договор" и "Оставить отзыв" */
+.booking-actions .action-button-unified {
+  width: 100px; /* Задайте минимальную ширину, чтобы они были не меньше друг друга */
+  text-align: center; /* Чтобы текст был по центру, если ширина кнопки больше текста */
+  box-sizing: border-box;
+  /* Чтобы padding и border учитывались в общей ширине */
+}
+
+/* Специфичные стили, если нужны (например, цвет) */
+.booking-actions .download-contract-button {
+  /* background-color: #d1ecf1; */ /* Пример цвета */
+}
+
+.booking-actions .review-button {
+  background-color: #6d9dd1; /* Пример цвета для кнопки "Оставить отзыв" */
+  color: white;
+  border-color: #6d9dd1;
+}
+.booking-actions .review-button:hover:not(:disabled) {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.booking-actions .pet-details-button {
+  background-color: #6c757d; /* Пример: серый цвет */
+  color: white;
+  /* Дополнительные стили, если нужно, чтобы она отличалась */
+}
+.booking-actions .pet-details-button:hover {
+  background-color: #5a6268;
+}
+
+/* Стили для блока с деталями питомца */
+.pet-details-modal {
+  background-color: #f8f9fa; /* Светлый фон, как у хедера карточки */
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px; /* Отступ от блока кнопок */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  /* Если это будет модальное окно, нужны будут стили для позиционирования, оверлея и т.д.
+     Для простоты, пока это просто расширяющийся блок внутри карточки. */
+}
+
+.pet-details-modal h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.pet-info-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* По умолчанию одна колонка */
+  gap: 8px 15px; /* row-gap column-gap */
+}
+
+@media (min-width: 576px) {
+  /* Для экранов пошире делаем 2 колонки */
+  .pet-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pet-info-grid p {
+  margin: 0 0 5px 0;
+  font-size: 0.9em;
+  color: #454545;
+}
+
+.pet-info-grid p strong {
+  color: #222;
+  min-width: 120px; /* Чтобы метки были примерно одной ширины */
+  display: inline-block; /* Для работы min-width */
+}
+
+.pet-description-full {
+  grid-column: 1 / -1; /* Занимает всю ширину грида, если грид многоколоночный */
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  white-space: pre-wrap; /* Сохраняет переносы строк из описания */
+}
+
+.pet-details-modal .close-pet-details-button {
+  display: block; /* Чтобы кнопка была на всю ширину или для margin:auto */
+  margin: 15px auto 0 auto; /* Отступ сверху и центрирование */
+  background-color: #6c757d;
+  color: white;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+.pet-details-modal .close-pet-details-button:hover {
+  background-color: #545b62;
+}
+
+.pet-profile-photo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer; /* Показываем, что можно кликнуть */
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #fff; /* Немного выделить от фона анкеты */
+}
+
+.pet-profile-photo-container.no-photo {
+  height: 100px; /* Примерная высота, если фото нет */
+  justify-content: center;
+  color: #888;
+  font-style: italic;
+  cursor: default;
+}
+
+.pet-profile-photo-thumbnail {
+  width: 120px; /* Размер миниатюры */
+  height: 120px;
+  object-fit: cover; /* Чтобы изображение красиво заполняло квадрат */
+  border-radius: 4px; /* Небольшое скругление для фото */
+  margin-bottom: 5px;
+}
+
+.pet-photo-zoom-hint {
+  font-size: 0.8em;
+  color: #777;
+}

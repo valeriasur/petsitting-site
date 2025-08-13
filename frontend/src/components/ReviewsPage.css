@@ -1,0 +1,274 @@
+/* src/pages/ReviewsPage.css */
+.site-reviews-page-container {
+  padding: 20px 15px 40px; /* Добавил отступ снизу */
+  max-width: 850px; /* Немного шире для отзывов */
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Oxygen",
+    "Ubuntu", Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; /* Используйте ваш основной шрифт */
+  color: #374151; /* Темно-серый для текста */
+  background-color: #f9fafb; /* Очень светло-серый фон, почти белый */
+}
+
+.site-reviews-main-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 20px;
+}
+
+.site-reviews-main-header h1 {
+  font-size: 2rem; /* Размер как на других страницах */
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  color: #4b4d4e;
+}
+
+.site-reviews-intro {
+  font: 18.8px;
+  color: #4b5563; /* Серый */
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.site-review-action-section {
+  margin-bottom: 40px;
+  text-align: center; /* Центрируем кнопку "Оставить отзыв" */
+}
+
+.site-review-toggle-button,
+.submit-review-button-sr {
+  padding: 10px 20px;
+  font-size: 1rem;
+  /* font-weight: 500; */
+  color: rgb(30, 37, 43);
+  background-color: #ececec;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+  display: inline-block; /* Чтобы margin: auto работало для центрирования */
+}
+
+.site-review-toggle-button:hover,
+.submit-review-button-sr:hover {
+  background-color: #91a0c9;
+}
+
+.submit-review-button-sr:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.site-review-form-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  margin-top: 25px;
+  border: 1px solid #e5e7eb; /* Светлая граница */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05),
+    0 1px 2px -1px rgba(0, 0, 0, 0.05); /* Легкая тень */
+  text-align: left;
+}
+
+.site-review-form-card h3 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.form-group-sr {
+  margin-bottom: 20px;
+}
+
+.form-group-sr label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.form-input-sr,
+.form-textarea-sr {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db; /* Граница как у инпутов на searchPage */
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: #1f2937;
+  background-color: #f9fafb; /* Очень светлый фон инпута */
+}
+
+.form-input-sr:focus,
+.form-textarea-sr:focus {
+  outline: none;
+  border-color: #3b82f6; /* Синяя рамка при фокусе */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.form-input-sr:disabled {
+  background-color: #e5e7eb;
+  cursor: not-allowed;
+  color: #6b7280;
+}
+
+.form-group-checkbox-sr {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.form-group-checkbox-sr input[type="checkbox"] {
+  margin-right: 8px;
+  width: auto;
+  height: 1em; /* Для лучшего выравнивания */
+  cursor: pointer;
+}
+.form-group-checkbox-sr label {
+  margin-bottom: 0; /* Убираем отступ у label для чекбокса */
+  font-weight: normal;
+  color: #4b5563;
+  cursor: pointer;
+}
+
+.star-rating-input {
+  margin-bottom: 5px; /* Отступ под звездами */
+}
+.star-rating-input .star {
+  font-size: 2.2em; /* Крупнее звезды для ввода */
+  color: #d1d5db; /* Неактивная звезда */
+  cursor: pointer;
+  margin-right: 4px;
+  transition: color 0.2s ease;
+}
+.star-rating-input .star:hover,
+.star-rating-input .star.filled {
+  color: #f59e0b; /* Желто-оранжевый для активных/наведенных звезд */
+}
+
+.form-message-sr {
+  text-align: center;
+  margin-top: 15px;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+.error-message.form-message-sr {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+.success-message.form-message-sr {
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.site-reviews-list-sr {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.site-review-card-item {
+  background: #ffffff;
+  font-size: 1em;
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.site-review-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Для лучшего выравнивания, если имя длинное */
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.site-reviewer-info {
+  flex-grow: 1;
+}
+
+.site-reviewer-name {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 1.1rem;
+}
+
+.site-review-date {
+  font-size: 1rem;
+  color: #6b7280;
+  display: block;
+  margin-top: 2px;
+}
+
+.star-rating-display .star {
+  /* Стили для отображения звезд в карточке */
+  font-size: 1.2em; /* Или ваш размер */
+  color: #d1d5db;
+  margin-right: 1px;
+}
+.star-rating-display .star.filled {
+  color: #f59e0b;
+}
+
+.site-review-comment-text {
+  line-height: 1.6;
+  color: #374151;
+  white-space: pre-wrap; /* Сохраняет переносы строк */
+  font-size: 1rem;
+}
+
+.loading-message-sr,
+.no-reviews-message-sr,
+.error-message-sr:not(.form-message-sr) {
+  /* Чтобы не конфликтовать с сообщением в форме */
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 30px 0;
+  color: #6b7280;
+}
+
+.pagination-controls-sr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+
+.pagination-controls-sr button {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  background-color: #e5e7eb; /* Светло-серая кнопка пагинации */
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.pagination-controls-sr button:disabled {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+  border-color: #e5e7eb;
+}
+
+.pagination-controls-sr button:hover:not(:disabled) {
+  background-color: #d1d5db;
+  border-color: #9ca3af;
+}
+
+.pagination-controls-sr span {
+  font-size: 0.9rem;
+  color: #4b5563;
+}

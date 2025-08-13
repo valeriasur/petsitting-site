@@ -1,0 +1,27 @@
+ol {
+  list-style-type: none; /* Убираем стандартные маркеры списка */
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  display: flex; /* Используем flexbox для выравнивания */
+  align-items: center; /* Выравниваем по вертикали */
+}
+
+li span {
+  margin-right: 10px; /* Добавляем отступ справа от номера */
+}
+
+/* Стили для картинки */
+li img {
+  width: 100px; /* Задаем ширину картинки */
+  height: 100px; /* Задаем высоту картинки */
+  object-fit: cover; /* Обрезаем картинку, чтобы она поместилась в заданные размеры */
+  border-radius: 50%; /* Делаем картинку круглой (по желанию) */
+}
+
+li span:last-child {
+  font-size: 19px;
+}

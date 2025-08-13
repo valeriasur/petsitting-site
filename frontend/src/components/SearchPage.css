@@ -1,0 +1,541 @@
+/* src/components/searchPage.css */
+
+/* Стили для SearchPage */
+.search-page-container {
+  /* Сюда можно добавить общие стили для всей страницы поиска, если нужно */
+  max-width: 1200px; /* Например, ограничить ширину */
+  margin: 0 auto; /* Центрировать */
+  padding: 20px;
+}
+
+.search-results-area {
+  margin-top: 20px;
+}
+
+.loading-message {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid red;
+  background-color: #ffeeee;
+}
+
+.results-summary {
+  text-align: center;
+  margin: 20px 0;
+  color: #333;
+}
+
+/* Стили для FilterPanel */
+.filter-panel {
+  border: 1px solid #eee;
+  padding: 15px;
+  margin-bottom: 20px;
+  background: #f9f9f9;
+  border-radius: 8px; /* Небольшое скругление */
+}
+
+.main-filters-grid {
+  display: grid; /* Используем Grid для удобного расположения */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  ); /* Адаптивные колонки */
+  gap: 40px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.filter-group {
+  /* Общие стили для группы фильтров */
+}
+
+.filter-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #4b4d4e;
+}
+
+.filter-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Чтобы padding не увеличивал ширину */
+}
+
+.filter-input-location:hover {
+  border-color: #7a91cf;
+}
+
+.filter-input-location:focus {
+  outline: none;
+  border-color: #7a91cf;
+}
+
+.filter-group-service {
+  /* Стили для группы кнопок услуг */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  font-weight: lighter;
+}
+
+.filter-button {
+  padding: 8px 8px;
+  margin-bottom: 7px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, border-color 0.2s; /* Плавный переход */
+}
+
+.filter-button:hover {
+  background-color: #91a0c9;
+}
+
+.filter-button:last-child {
+  margin-right: 0;
+}
+
+/* Активное состояние для кнопок */
+.filter-button.active {
+  background: #91a0c9;
+  border-color: #91a0c9;
+}
+
+.filter-dates-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-input-date {
+  flex-grow: 1;
+  max-width: 130px;
+}
+
+.filter-input-date:focus {
+  outline: none;
+  border-color: #91a0c9;
+}
+
+.filter-dates-separator {
+  margin: 0 10px;
+}
+
+.filter-options-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.filter-option-label {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.2s, border-color 0.2s;
+  display: inline-block; /* Чтобы label вели себя как кнопки */
+}
+
+.filter-option-label:hover {
+  border-color: #91a0c9;
+}
+
+.filter-option-label.active {
+  background: #91a0c9;
+  border-color: #91a0c9;
+}
+
+.filter-option-checkbox-hidden {
+  display: none; /* Скрываем настоящий чекбокс */
+}
+
+.filter-input-range {
+  -webkit-appearance: none; /* Убираем стандартный вид для WebKit */
+  appearance: none;
+  width: 100%; /* Занимает всю ширину контейнера */
+  height: 8px; /* Высота трека */
+  background: transparent; /* Убираем фон самого инпута, будем стилизовать трек */
+  cursor: pointer;
+  margin-bottom: 5px; /* Отступ как был */
+}
+/* --- Стилизация ТРЕКА (линии) --- */
+
+/* Для WebKit (Chrome, Safari, Edge, Opera) */
+.filter-input-range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    #27303a 0%,
+    /* Начальный цвет (СИНИЙ - измени на нужный) */ #adbadd
+      var(--value-percent, 0%),
+    /* Цвет до ползунка (контролируется JS или по умолчанию 0) */ #d3d3d3
+      var(--value-percent, 0%),
+    /* Цвет после ползунка (СЕРЫЙ - измени на нужный) */ #d3d3d3 100%
+      /* Конечный цвет фона */
+  );
+  border-radius: 4px; /* Скругляем трек */
+  /* Убери border, если он не нужен */
+  /* border: 1px solid #ccc; */
+}
+
+/* Для Firefox */
+.filter-input-range::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  /* Для Firefox градиент для "заполнения" сложнее, используем простой фон */
+  background: #91a0c9; /* Цвет всего трека (СЕРЫЙ - измени на нужный) */
+  border-radius: 4px;
+  /* Убери border, если он не нужен */
+  /* border: 1px solid #ccc; */
+  /* Firefox не имеет простого способа сделать градиент ДО ползунка как в Webkit без JS */
+  /* Если нужна синяя линия ДО ползунка и в Firefox, это потребует JS */
+}
+
+/* --- Стилизация ПОЛЗУНКА (thumb) --- */
+
+/* Для WebKit */
+.filter-input-range::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Обязательно для стилизации */
+  appearance: none;
+  border: none; /* Убираем стандартную рамку */
+  height: 18px; /* Размер ползунка */
+  width: 18px; /* Размер ползунка */
+  background: #91a0c9; /* Цвет ползунка (СИНИЙ - измени на нужный) */
+  border-radius: 50%; /* Делаем круглым */
+  cursor: pointer;
+  margin-top: -5px; /* Центрируем ползунок относительно трека (половина высоты ползунка - половина высоты трека) = (18/2) - (8/2) = 9 - 4 = 5 */
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); /* Небольшая тень для объема */
+}
+
+/* Для Firefox */
+.filter-input-range::-moz-range-thumb {
+  border: none;
+  height: 18px;
+  width: 18px;
+  background: #91a0c9; /* Цвет ползунка (СИНИЙ - измени на нужный) */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  /* Firefox не требует margin-top для центровки */
+}
+
+/* --- Убираем стандартный фокус (если нужно, добавляем свой) --- */
+.filter-input-range:focus {
+  outline: none; /* Убираем синий контур */
+}
+
+/* Опционально: добавляем свой индикатор фокуса на ползунок */
+.filter-input-range:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(57, 66, 77, 0.3); /* Синяя тень при фокусе */
+}
+
+.filter-input-range:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 3px rgba(57, 66, 77, 0.3); /* Синяя тень при фокусе */
+}
+
+.filter-price-display {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #4b4d4e;
+  display: block; /* Чтобы был на новой строке под слайдером */
+}
+
+.filter-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+  margin-top: 15px; /* Добавим отступ сверху */
+}
+
+.filter-button-reset {
+  background: #eee;
+  border: 1px solid #ccc;
+}
+.filter-button-reset:hover {
+  background: #91a0c9;
+}
+
+.filter-button-toggle {
+  background: none; /* Убираем фон по умолчанию */
+  border: none; /* Убираем рамку по умолчанию */
+  color: rgb(57, 99, 138);
+  cursor: pointer;
+  padding: 0; /* Убираем лишние паддинги */
+}
+.filter-button-toggle:hover {
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+.filter-button-toggle:focus {
+  outline: none;
+}
+
+/* Расширенные фильтры */
+.advanced-filters {
+  margin-top: 20px;
+  border-top: 1px dashed #ccc;
+  padding-top: 20px;
+  display: grid; /* Тоже Grid для удобства */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px 50px; /* row-gap column-gap */
+}
+
+.filter-checkbox-label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 8px;
+  cursor: pointer;
+  user-select: none;
+  width: 400px;
+}
+
+.filter-checkbox-label input[type="checkbox"] {
+  margin-right: 8px;
+  /* vertical-align: middle; Выравниваем чекбокс и текст */
+  /* font-size: 16px; */
+}
+
+/* Стили для SitterCard */
+.sitter-card {
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  padding: 15px; /* Увеличил немного */
+  display: flex;
+  gap: 15px; /* Зазор между фото и инфо */
+  border-radius: 8px;
+  background-color: white;
+}
+
+.sitter-photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px; /* Слегка скруглим фото */
+  flex-shrink: 0; /* Чтобы фото не сжималось */
+}
+
+.sitter-info {
+  flex-grow: 1; /* Чтобы инфо занимало оставшееся место */
+}
+.sitter-info h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.sitter-location-inline {
+  font-size: 0.9em;
+  color: #555;
+  font-weight: normal; /* Убираем жирность, если она от h3 */
+}
+
+.sitter-price {
+  font-weight: bold;
+  color: rgb(31, 68, 92);
+  margin: 5px 0;
+}
+
+.sitter-rating-reviews {
+  font-size: 0.9em;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.sitter-reviews-count {
+  margin-left: 10px;
+}
+
+.sitter-description {
+  color: #666;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.sitter-details-link {
+  color: rgba(33, 94, 112, 0.253);
+  text-decoration: underline;
+  font-size: 0.9em;
+}
+.sitter-details-link:hover {
+  color: #91a0c9;
+}
+
+/* Стили для Pagination */
+.pagination {
+  margin-top: 30px; /* Увеличим отступ */
+  margin-bottom: 20px; /* Добавим отступ снизу */
+  text-align: center;
+}
+
+.pagination-button {
+  margin: 0 3px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.pagination-button:hover:not(:disabled) {
+  /* Стиль ховера только для активных */
+  border-color: #aaa;
+  background-color: #f0f0f0;
+}
+.pagination-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Активная кнопка пагинации */
+.pagination-button.active {
+  border: 2px solid blue;
+  background-color: #e0f0ff;
+  /* cursor: default; - можно сделать некликабельной */
+}
+
+.pagination-button-prev {
+  margin-right: 10px; /* Больше отступ для кнопок Вперед/Назад */
+}
+
+.pagination-button-next {
+  margin-left: 10px;
+}
+
+.sitter-verified-badge {
+  color: green; /* Или другой цвет для значка */
+  font-size: 0.9em;
+  margin-left: 5px;
+  cursor: default; /* Чтобы не было текстового курсора */
+}
+
+.sitter-experience {
+  /* Стили как у sitter-reviews-count или отдельные */
+  margin-left: 10px;
+}
+
+.sitter-price-suffix {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.sort-filter-group {
+  display: flex; /* Располагаем метку и select в один ряд */
+  align-items: center; /* Выравниваем по центру вертикально */
+  margin-bottom: 20px; /* Отступ снизу, если нужно */
+  gap: 8px; /* Небольшой отступ между меткой и select */
+}
+
+/* Стиль для метки "Сортировать по:" */
+.sort-filter-group label[for="sortBySelect"] {
+  /* Используем более точный селектор, если id у select - sortBySelect */
+  font-size: 0.9rem; /* Размер шрифта метки */
+  color: #333; /* Цвет текста метки */
+  font-weight: 600; /* Немного жирнее */
+  margin-bottom: 0; /* Убираем нижний отступ, так как они в flex-контейнере */
+}
+
+select.sort-by-select {
+  padding: 8px 30px 8px 12px; /* Отступы: верх/низ, справа (для стрелки), слева */
+  border: 1px solid #ced4da; /* Стандартная серая рамка */
+  border-radius: 4px; /* Скругление углов */
+  background-color: #fff; /* Белый фон */
+  font-size: 0.9rem; /* Размер шрифта внутри select */
+  color: #495057; /* Цвет текста внутри select */
+  cursor: pointer;
+
+  /* Убираем стандартную стрелку браузера */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Добавляем свою кастомную стрелку через background-image */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23555%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Позиция стрелки: справа с отступом, по центру вертикально */
+  background-size: 10px auto; /* Размер стрелки */
+
+  min-width: 200px; /* Минимальная ширина, чтобы текст не переносился сильно */
+  box-sizing: border-box;
+}
+
+select.sort-by-select:focus {
+  outline: none; /* Убираем стандартную обводку при фокусе */
+  border-color: #91a0c9; /* Цвет рамки при фокусе (светло-синий) */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Тень как у Bootstrap */
+}
+
+/* Для Firefox может потребоваться убрать дополнительный padding, который он добавляет */
+select.sort-by-select::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.sort-and-rating-controls-container {
+  display: flex; /* Включаем Flexbox */
+  justify-content: space-between; /* Распределяет пространство МЕЖДУ элементами */
+  align-items: center; /* Выравнивает элементы по центру вертикально */
+  margin-bottom: 20px; /* Отступ снизу от этого блока */
+  flex-wrap: wrap; /* Позволяет переноситься на новую строку на маленьких экранах, если нужно */
+  gap: 15px; /* Отступ между блоком сортировки и блоком рейтинга, если они перенесутся */
+}
+
+/* Стили для группы "Сортировать по" внутри нового контейнера */
+.sort-and-rating-controls-container .sort-filter-group {
+  display: flex; /* Чтобы label и select были в одну строку */
+  align-items: center;
+  gap: 8px; /* Отступ между "Сортировать по:" и select */
+  margin-bottom: 0; /* Убираем стандартный отступ .filter-group, так как он теперь flex-item */
+
+  /* flex-grow: 1; /* Можно добавить, если хотите, чтобы блок сортировки занимал больше места слева */
+}
+
+/* Стили для группы "Минимальный рейтинг" внутри нового контейнера */
+.sort-and-rating-controls-container .rating-filter-group {
+  display: flex; /* Чтобы label и звезды/кнопка были в одну строку */
+  align-items: center;
+  gap: 8px; /* Отступ между "Минимальный рейтинг:" и звездами */
+  margin-bottom: 0; /* Убираем стандартный отступ .filter-group */
+  /* justify-content: flex-end; /* Если хотите прижать к правому краю внутри этого блока, но основной space-between уже есть */
+}
+
+/* Убедимся, что метки в этих группах не имеют лишних отступов, мешающих выравниванию */
+.sort-and-rating-controls-container .sort-filter-group label,
+.sort-and-rating-controls-container .rating-filter-group label {
+  margin-bottom: 0; /* Важно для align-items: center у родителя */
+  white-space: nowrap; /* Предотвратить перенос текста метки */
+
+  font-weight: bold;
+  font-size: 15.84px;
+  color: #4b4d4e;
+  display: block; /* Чтобы был на новой строке под слайдером */
+}
+
+.App h1 {
+  margin-top: 20px;
+  font-size: 2rem;
+  color: #4b4d4e;
+  display: block; /* Чтобы был на новой строке под слайдером */
+}

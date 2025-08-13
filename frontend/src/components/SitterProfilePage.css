@@ -1,0 +1,493 @@
+.sitter-profile-page {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-loading,
+.profile-error,
+.profile-not-found {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+
+.profile-avatar img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ddd;
+}
+
+.profile-header-info h1 {
+  margin: 0 0 5px 0;
+  font-size: 1.8em;
+}
+
+.profile-location {
+  color: #666;
+  margin: 0 0 10px 0;
+}
+
+.profile-rating-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1em;
+}
+
+.profile-rating-summary .rating-score {
+  font-weight: bold;
+  color: #fabb05;
+}
+
+.profile-rating-summary .review-count {
+  color: #555;
+}
+
+.profile-section {
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.profile-section h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.profile-section p {
+  line-height: 1.6;
+  color: #333;
+}
+
+.profile-section p strong {
+  color: #111;
+}
+
+.profile-services ul {
+  list-style: none;
+  padding: 0;
+}
+.profile-services li {
+  margin-bottom: 8px;
+}
+
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.photo-gallery img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer; /* Можно добавить открытие в модальном окне */
+}
+
+.reviews-list {
+  list-style: none;
+  padding: 0;
+}
+
+.review-item {
+  border-bottom: 1px dashed #eee;
+  padding: 15px 0;
+}
+.review-item:last-child {
+  border-bottom: none;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.reviewer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviewer-name {
+  font-weight: bold;
+}
+
+.review-rating {
+  margin-left: auto; /* Отодвигает рейтинг вправо */
+  font-weight: bold;
+  color: #fabb05;
+}
+.review-date {
+  font-size: 0.85em;
+  color: #888;
+}
+
+.review-comment {
+  margin: 0;
+  color: #444;
+}
+
+.profile-section.profile-availability {
+  /* Стили для секции календаря */
+  margin-bottom: 2rem;
+}
+
+.availability-controls {
+  margin-bottom: 1rem;
+}
+
+.availability-controls label {
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.availability-controls select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.calendar-container {
+  max-width: 400px; /* Ограничь ширину или сделай адаптивным */
+  margin: 0 auto; /* Центрирование, если нужно */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+
+/* Стилизация react-calendar (переопределение базовых стилей) */
+.react-calendar {
+  width: 100%;
+  border: none; /* Убираем рамку самого календаря, т.к. есть у контейнера */
+  font-family: inherit; /* Наследуем шрифт */
+}
+
+/* Пример выделения занятого дня */
+.react-calendar__tile.booked-date {
+  background-color: #ffdddd; /* Светло-красный фон */
+  color: #a83232; /* Темно-красный текст */
+  border-radius: 50%; /* Круглое выделение */
+  font-weight: bold;
+  pointer-events: none; /* Запретить клик на занятые дни */
+}
+
+/* Можно добавить hover эффект для доступных дней */
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: #e6e6e6;
+}
+
+.calendar-legend {
+  margin-top: 1rem;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  border-radius: 3px;
+}
+
+.booked-indicator {
+  background-color: #ffdddd; /* Должен совпадать с .booked-date */
+  border: 1px solid #f7c6c6;
+}
+
+.react-calendar__month-view__days__day.react-calendar__tile--now {
+  background-color: transparent !important;
+  border: 2px solid #91a0c9 !important; /* Добавил !important и для border на всякий случай */
+  font-weight: bold;
+}
+
+/* И для активного сегодняшнего дня */
+.react-calendar__month-view__days__day.react-calendar__tile--active.react-calendar__tile--now,
+.react-calendar__month-view__days__day.react-calendar__tile--hasActive.react-calendar__tile--now {
+  background-color: #91a0c9 !important; /* Ваш синий цвет для выбранных */
+  color: #91a0c9 !important;
+  border: 2px solid #cfe2ff !important;
+}
+
+.react-calendar__month-view__days__day.weekend-date abbr {
+  /* Стили для текста даты в выходной */
+  color: #396941; /* Пример: красный цвет текста для выходных */
+}
+
+.react-calendar__month-view__days__day.booked-date.weekend-date abbr {
+  /* Если день и занят, и выходной, цвет текста из booked-date может переопределить weekend-date */
+  /* Можно оставить как есть, или сделать цвет текста booked-date приоритетнее */
+}
+
+.time-slots-and-booking-form h4 {
+  margin-bottom: 15px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1.3em;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* ... ваши существующие стили ... */
+
+/* 1. Блок с информацией о выбранной услуге */
+.booking-summary-centered {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  /* width: 100%; */ /* УБИРАЕМ width: 100%, чтобы блок мог сжаться по содержимому */
+  max-width: max-content; /* << Блок будет по ширине своего самого длинного текстового элемента */
+  margin-left: auto; /* << ЦЕНТРИРУЕМ САМ БЛОК */
+  margin-right: auto; /* << ЦЕНТРИРУЕМ САМ БЛОК */
+  /* padding: 0 10px; */ /* Можно добавить небольшой горизонтальный padding, если текст близко к краям */
+}
+.booking-summary-centered p {
+  margin: 4px 0;
+  /* font-size: 0.95em; */
+  white-space: nowrap; /* << ЧТОБЫ ТЕКСТ ВНУТРИ <p> НЕ ПЕРЕНОСИЛСЯ, если нужно */
+}
+.booking-summary-centered p strong {
+  font-weight: 600;
+  font: 16px;
+}
+
+/* 2. Заголовок "Повторение услуги" */
+.repetition-section-centered {
+  width: 100%; /* Занимает всю ширину родителя (.time-slots-and-booking-form) */
+  /* max-width: 500px; */ /* << УБРАТЬ MAX-WIDTH, чтобы центрирование было относительно родителя */
+  text-align: center;
+  margin-bottom: 15px; /* << Увеличим немного отступ снизу перед полями */
+}
+.repetition-title-centered {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* 3. Контейнер для полей формы, которые будут слева */
+.booking-fields-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Содержимое этого блока (гриды) будет слева */
+  gap: 12px; /* Отступ между гридами полей */
+  width: 100%;
+  max-width: 480px; /* Такая же ширина, как у выбора времени/длительности */
+  padding-left: 5px; /* Минимальный отступ слева */
+  /* border: 1px solid blue; /* для отладки */
+}
+
+/* Грид для опций повторения */
+.repetition-options-grid.booking-field {
+  /* Добавляем .booking-field для консистентности */
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(160px, max-content) auto; /* auto для второй колонки, чтобы инпуты были компактными */
+  gap: 8px 10px;
+  align-items: center;
+  /* margin-bottom: 10px; */ /* Отступ управляется gap родителя .booking-fields-container */
+}
+
+.repetition-label {
+  text-align: left;
+  font-weight: normal;
+  font: 16px;
+}
+
+.repetition-input-area {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.repetition-input-area input[type="radio"] {
+  margin-right: 8px;
+  transform: scale(0.9); /* Немного уменьшаем радио-кнопки */
+}
+.repetition-date-input.form-control {
+  /* Убираем лишний класс .form-control, если он не нужен */
+  padding: 6px; /* Уменьшил padding */
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 140px; /* Уменьшил ширину поля даты */
+  box-sizing: border-box;
+  font-size: 0.9em;
+}
+
+/* Общие стили для других полей формы (выбор питомца, примечания) */
+.booking-fields-container .form-group.booking-field {
+  display: grid;
+  grid-template-columns: minmax(160px, max-content) 1fr;
+  gap: 8px 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.booking-fields-container .form-group.booking-field label {
+  text-align: left;
+  font-weight: bold;
+  font: 18px;
+}
+
+/* Общий стиль для всех полей ввода, которые должны быть одинаковыми */
+.form-control-uniform {
+  /* Ширина и максимальная ширина */
+  width: 100%; /* Занимает доступную ширину в своей грид-колонке */
+  max-width: 220px; /* Общая максимальная ширина для большинства инпутов */
+
+  /* Внешний вид */
+  padding: 8px 10px;
+  font-size: 0.95em;
+  line-height: 1.4;
+  color: #495057; /* Цвет текста внутри инпута */
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da; /* Стандартный цвет рамки Bootstrap-like */
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); /* Небольшая внутренняя тень для объема */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing: border-box;
+
+  /* Убираем стандартный вид для select и некоторых input в разных браузерах */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.booking-fields-container .form-control-narrow {
+  width: 100%;
+  max-width: 200px; /* << ЕЩЕ УМЕНЬШИЛ ШИРИНУ этих полей */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  justify-self: start;
+  font-size: 0.9em;
+}
+
+/* 4. Кнопка "Забронировать" */
+.booking-action-centered {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.booking-action-centered .button.primary-button.booking-submit-button {
+  padding: 8px 20px; /* Уменьшил padding кнопки */
+  font-size: 0.95em;
+  background: #eee;
+  border: 1px solid #ccc;
+  color: #333;
+  border-radius: 5px;
+}
+
+.booking-action-centered .button.primary-button.booking-submit-button:hover {
+  background: #91a0c9;
+}
+
+/* Сообщения об успехе/ошибке */
+.booking-fields-container .success-message,
+.booking-fields-container .error-message {
+  width: 100%;
+  text-align: left;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.success-message {
+  background-color: #e6ffed;
+  color: #006421;
+  border: 1px solid #c3e6cb;
+}
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.loading-message,
+.info-message {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  color: #555;
+}
+.login-prompt {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+  border-radius: 4px;
+}
+
+/* 1. Стили для одиночной даты, а также для начала и конца диапазона */
+.react-calendar__tile.selected-single-date,
+.react-calendar__tile.selected-start-date,
+.react-calendar__tile.selected-end-date {
+  background-color: #91a0c9 !important; /* Ваш фирменный цвет */
+  color: white !important; /* Белый цвет для цифры, чтобы она была видна */
+  border-radius: 50%; /* Делаем выделение полностью круглым */
+}
+
+/* 2. Стили для дат внутри диапазона (между началом и концом) */
+.react-calendar__tile.selected-range-date {
+  background-color: #d1d9ec !important; /* Более светлый оттенок вашего цвета */
+  color: #333 !important; /* Темный цвет для цифры, чтобы она была видна на светлом фоне */
+  border-radius: 0; /* Убираем скругление для промежуточных дат */
+}
+
+/* 3. Убираем эффект наведения для уже выбранных дат, чтобы их цвет не менялся */
+.react-calendar__tile.selected-single-date:hover,
+.react-calendar__tile.selected-start-date:hover,
+.react-calendar__tile.selected-end-date:hover {
+  background-color: #91a0c9 !important;
+}
+
+.react-calendar__tile.selected-range-date:hover {
+  background-color: #d1d9ec !important;
+}
+
+.selected-indicator {
+  background-color: #91a0c9; /* Задаем основной цвет выделения */
+  border: 1px solid #7a91cf; /* Добавляем рамку для контраста */
+}
